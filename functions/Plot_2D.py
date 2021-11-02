@@ -601,39 +601,39 @@ class Plot_2D(object):
             self.cmax = self.colorticks[-1]
             
 
-            # Adjust colorticks in case of maximum value > 1e3
-            # make colorlabels for log_scale plot
-            if self.log_scale:
-                if (self.sign_sum in [1,2]) & (np.max(self.colorticks) > 1e3):
-                    ind_above_1 = np.where( self.colorticks > 1 )
-                    self.colorticks = [0] + list(self.colorticks[ind_above_1])
-                    self.nticks = len(self.colorticks)
-                elif (self.sign_sum in [-1,-2]) & (np.min(self.colorticks) < 1e-3):
-                    ind_below_m1 = np.where( self.colorticks < -1 )
-                    self.colorticks = list( self.colorticks[ind_below_m1] ) + [0]
-                    self.nticks = len(self.colorticks)
-                    
-                self.colorlabels = []
-                for ct in self.colorticks:
-                    if ct == 0:
-                        lbtmp = '0'
+        # Adjust colorticks in case of maximum value > 1e3
+        # make colorlabels for log_scale plot
+        if self.log_scale:
+            if (self.sign_sum in [1,2]) & (np.max(self.colorticks) > 1e3):
+                ind_above_1 = np.where( self.colorticks > 1 )
+                self.colorticks = [0] + list(self.colorticks[ind_above_1])
+                self.nticks = len(self.colorticks)
+            elif (self.sign_sum in [-1,-2]) & (np.min(self.colorticks) < 1e-3):
+                ind_below_m1 = np.where( self.colorticks < -1 )
+                self.colorticks = list( self.colorticks[ind_below_m1] ) + [0]
+                self.nticks = len(self.colorticks)
+
+            self.colorlabels = []
+            for ct in self.colorticks:
+                if ct == 0:
+                    lbtmp = '0'
+                else:
+                    if ct < 0:
+                        tmpind = 5
+                        sign = "-"
+                    elif ct > 0:
+                        tmpind = 4
+                        sign = ""
+
+                    if format( np.abs(ct), '.4e' )[tmpind-2:tmpind] == '00':
+                        lbtmp = format( ct, '.2e' )[tmpind:]
+                        lbtmp = sign + '$\\mathdefault{' + lbtmp.replace('e','10^{')[:-2] + \
+                                 str(int(lbtmp[-2:])) + '}}$'
                     else:
-                        if ct < 0:
-                            tmpind = 5
-                            sign = "-"
-                        elif ct > 0:
-                            tmpind = 4
-                            sign = ""
-                        
-                        if format( np.abs(ct), '.4e' )[tmpind-2:tmpind] == '00':
-                            lbtmp = format( ct, '.2e' )[tmpind:]
-                            lbtmp = sign + '$\\mathdefault{' + lbtmp.replace('e','10^{')[:-2] + \
-                                     str(int(lbtmp[-2:])) + '}}$'
-                        else:
-                            lbtmp = format( ct, '.4e' )[:tmpind] + format( ct, '.2e' )[tmpind:]
-                            lbtmp = '$\\mathdefault{' + lbtmp.replace('e','\\times10^{')[:-2] + \
-                                     str(int(lbtmp[-2:])) + '}}$'
-                    self.colorlabels.append( lbtmp.replace( '+', '' ) )
+                        lbtmp = format( ct, '.4e' )[:tmpind] + format( ct, '.2e' )[tmpind:]
+                        lbtmp = '$\\mathdefault{' + lbtmp.replace('e','\\times10^{')[:-2] + \
+                                 str(int(lbtmp[-2:])) + '}}$'
+                self.colorlabels.append( lbtmp.replace( '+', '' ) )
 
         # Dictionary declaration for keywords in external function call
         self.kwd_pcolormesh = {}
