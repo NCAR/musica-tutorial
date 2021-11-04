@@ -13,3 +13,9 @@ git clone https://github.com/NCAR/musica-tutorial
 ## How to use a jupyterhub
 https://docs.google.com/presentation/d/1pyVtkXvYBkbYjguDXow15ALsbHQUwqioapRFnphcsTo
 
+
+## If you are familiar with jupyter notebook and would like to play with notebooks on your local machine, download sample files from this ftp site:
+
+```
+ftp://ftp.acom.ucar.edu/user/emmons/musica_tutorial_nov2021/
+```
