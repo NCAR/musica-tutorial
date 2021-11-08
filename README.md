@@ -19,3 +19,10 @@ https://docs.google.com/presentation/d/1pyVtkXvYBkbYjguDXow15ALsbHQUwqioapRFnphc
 ```
 ftp://ftp.acom.ucar.edu/user/emmons/musica_tutorial_nov2021/
 ```
+
+## You can also download files from community MUSICAv0 CONUS simulations, which are available at:
+
+
+https://doi.org/10.5065/tgbj-yv18
+
+Details about community simulations will be introduced during the first MUSICA tutorial. 
