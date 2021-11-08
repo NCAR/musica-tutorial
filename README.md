@@ -25,4 +25,4 @@ ftp://ftp.acom.ucar.edu/user/emmons/musica_tutorial_nov2021/
 
 https://doi.org/10.5065/tgbj-yv18
 
-Details about community simulations will be introduced during the first MUSICA tutorial. 
+Details about community simulations will be explained during the first MUSICA tutorial. 
