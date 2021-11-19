@@ -26,3 +26,10 @@ ftp://ftp.acom.ucar.edu/user/emmons/musica_tutorial_nov2021/
 https://doi.org/10.5065/tgbj-yv18
 
 Details about community simulations will be explained during the first MUSICA tutorial. 
+
+
+## Further information about MUSICA can be found at:
+
+https://wiki.ucar.edu/display/MUSICA/MUSICA+Home
+
+Including other plotting tools (e.g., VisIt, Matlab), creating a new grid, and how to run MUSICA. 
